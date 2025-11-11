@@ -1,0 +1,36 @@
+@use './fonts.scss';
+
+:root {
+  --primary-100: #CCE4FF;
+  --primary-200: #99CAFF;
+  --primary-300: #66AFFF;
+  --primary-400: #3395FF;
+  --primary-500: #007AFF;
+  --primary-600: #0062CC;
+  --primary-700: #004999;
+  --primary-800: #003166;
+  --primary-900: #001833;
+
+  --neutral-100: #F6F7F8;
+  --neutral-200: #EEEFF2;
+  --neutral-300: #EBEDF0;
+  --neutral-400: #DCE0E5;
+  --neutral-500: #CED4DB;
+  --neutral-600: #B0B9C5;
+  --neutral-700: #929FAF;
+  --neutral-800: #728397;
+  --neutral-900: #5B6A7B;
+
+  --black: #000205;
+  --white: #FFFFFF;
+  --gray: #CED4DB;
+  --primary: #007AFF;
+  --green: #65EA52;
+  --red: #DA2B3C;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
