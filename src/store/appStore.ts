@@ -4,14 +4,19 @@ export const useAppStore = defineStore('app', {
   state: () => ({
     tabs: {
       home: {
-        name: 'Containers',
+        name: 'Home',
         route: '/',
+        icon: 'home'
+      },
+      containers: {
+        name: 'Containers',
+        route: '/containers',
         icon: 'containers'
       },
       users: {
         name: 'Users',
         route: '/users',
-        icon: 'containers'
+        icon: 'users'
       }
     }
   })
