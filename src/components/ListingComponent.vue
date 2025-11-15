@@ -22,7 +22,7 @@ const props = defineProps<{
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   --padding: 1.25rem;
 
