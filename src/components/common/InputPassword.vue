@@ -3,19 +3,25 @@
     <label for="id" class="input-label-style">{{ label }}</label>
     <div class="passsword-container">
       <input 
-        :type="passwordType('main')"
+        :type="isPassword ? 'text' : 'password'"
         :id="id"
         :placeholder="placeholder"
         class="input-style"
         :class="state ? ' ' : 'error-input'"
         v-model="data"
         />
+        <button
+          type="button"
+          class="toggle-button" 
+          @click="togglePassword">
+          <img :src="passwordIcon()" alt="Toggle password">
+        </button>
     </div>
 
   </div>
 </template>
 <script setup lang="ts">
-import { reactive, computed } from 'vue';
+import { ref ,computed } from 'vue';
 const props = defineProps ({
     label: String,
     id: String,
@@ -33,16 +39,40 @@ const data = computed ({
     set: (value) => emit("update:modelValue", value)
 })
 
-type passwordField = 'main'
-const showPassword = reactive<Record<passwordField, boolean>>({
-    main:false,
-})
+const isPassword = ref(false)
 
-const passwordType = (field: passwordField) => (showPassword[field] ? 'text' : 'password')
+function togglePassword() {
+  isPassword.value = !isPassword.value
+}
+
+function passwordIcon (){
+  return isPassword.value
+  ? '/public/icons/Oneyes.svg'
+  : '/public/icons/Offeyes.svg'
+}
+
 </script>
 <style scoped>
-  .password-container {
+  .input-container {
+    margin: 1.5rem 0;
     position: relative;
-    width: 100%;
+  }
+  
+  .input-container input, input::placeholder {
+    font-size: var(--text-base);
+  }
+
+  .toggle-button {
+    right: 0.75rem;
+    border: none;
+    transform: translateY(60%);
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+  }
+
+  .toggle-button img {
+    width: 30px;
+    height: 30px;
   }
 </style>
