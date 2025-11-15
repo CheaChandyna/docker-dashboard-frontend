@@ -1,21 +1,20 @@
 <template>
   <div class="container">
     <div class="wrapper">
-      <img :src="props.icon" alt="">
+      <img src="/icons/immich.svg" alt="">
       <h2>{{ props.name }}</h2>
     </div>
 
     <div 
       class="state-tag" 
       :class="props.state === 'running' ? 'active' : props.state === 'stopped' ? 'inactive' : 'processing'">
-      <span>{{ props.state.charAt(0).toUpperCase() + props.state.slice(1) }}</span>
+      <span class="state" >{{ props.state.charAt(0).toUpperCase() + props.state.slice(1) }}</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  icon: string,
   name: string | undefined,
   state: string,
 }>()
@@ -24,14 +23,12 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 .container {
-  --padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
 
-  width: 50.5rem;
-  height: 8.75rem;
   border-radius: 1.5rem;
   background-color: var(--neutral-100);
-  padding: var(--padding);
-  position: relative;
+  padding: 1.25rem;
 
   .wrapper {
     display: flex;
@@ -49,16 +46,12 @@ const props = defineProps<{
   }
 
   .state-tag {
-    width: 8rem;
-    height: 2.25rem;
+    height: fit-content;
     text-align: center;
     border-radius: 1rem;
-    padding: 0.5rem 1.25rem;
-    position: absolute;
-    right: var(--padding);
-    top: var(--padding);
+    padding: 0.25rem 0.75rem;
 
-    span {
+    .state {
       font-size: 1.25rem;
       font-weight: bold;
     }
