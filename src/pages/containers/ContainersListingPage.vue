@@ -4,7 +4,6 @@
       <ListingComponent 
         v-for="container in containers" 
         :key="container.Id"
-        :icon="container.Image" 
         :name="container.Names[0]?.replace('/', '')" 
         :state="container.State"
         @click="router.push(`/containers/details/${container.Id}`)"
@@ -219,6 +218,7 @@ const containers = [
 
 <style scoped>
 .grid-container {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
