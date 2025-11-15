@@ -1,20 +1,23 @@
 <template>
-  <div>
-    <h1>this is containers page</h1>
-    <div 
-      v-for="container in containers" 
-      :key="container.Id"
-    >
-      <p>Id: {{ container.Id }}</p>
-      <p>Name: {{ container.Names[0]?.replace('/', '') }}</p>
-      <p>Image: {{ container.Image }}</p>
-      <p>State: {{ container.State }}</p>
-
+  <div class="page">
+    <div class="grid-container">
+      <ListingComponent 
+        v-for="container in containers" 
+        :key="container.Id"
+        :icon="container.Image" 
+        :name="container.Names[0]?.replace('/', '')" 
+        :state="container.State"
+        @click="router.push(`/containers/details/${container.Id}`)"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+import ListingComponent from '../../components/ListingComponent.vue';
+const router = useRouter()
+
 // this is a json from real docker api (/v1.51/containers/json)
 const containers = [
   {
@@ -213,3 +216,11 @@ const containers = [
   },
 ];
 </script>
+
+<style scoped>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+</style>

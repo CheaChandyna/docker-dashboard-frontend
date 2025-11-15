@@ -27,10 +27,15 @@
   --primary: #007AFF;
   --green: #65EA52;
   --red: #DA2B3C;
+  --orange: #ff9900
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.page {
+  padding: 1rem;
 }
