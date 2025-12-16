@@ -6,7 +6,7 @@
         :key="container.Id"
         :name="container.Names[0]?.replace('/', '')" 
         :state="container.State"
-        @click="router.push(`/containers/details/${container.Id}`)"
+        @click="router.push(`/containers/${container.Id}`)"
       />
     </div>
   </div>

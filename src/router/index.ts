@@ -4,7 +4,7 @@ import HomePage from "../pages/HomePage.vue";
 import UsersListingPage from "../pages/UsersListingPage.vue";
 import SimpleLayout from "../layouts/SimpleLayout.vue";
 import LoginPage from "../pages/LoginPage.vue";
-import ContainersListingPage from "../pages/containers/ContainersListingPage.vue";
+import { containerRouter } from "./containerRouter";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,19 +15,15 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'Home',
+          name: 'home',
           component: HomePage
         },
         {
-          path: '/containers',
-          name: 'Containers ListingPage',
-          component: ContainersListingPage
-        },
-        {
           path: '/users',
-          name: 'Users Page',
+          name: 'users-page',
           component: UsersListingPage
-        }
+        },
+        ...containerRouter
       ]
     },
     {
@@ -36,7 +32,7 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'Login Page',
+          name: 'login-page',
           component: LoginPage
         }
       ]
