@@ -5,7 +5,7 @@ import ManageContainerListingPage from "../pages/manage/ManageContainerListingPa
 export const manageRouter = [
     {
     path: '/manage',
-    name: 'manage',
+    name: 'manage-container-listing-page',
     component: ManageContainerListingPage
     },
     {
