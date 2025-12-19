@@ -5,6 +5,7 @@ import UsersListingPage from "../pages/UsersListingPage.vue";
 import SimpleLayout from "../layouts/SimpleLayout.vue";
 import LoginPage from "../pages/LoginPage.vue";
 import { containerRouter } from "./containerRouter";
+import { manageRouter } from "./manageRouter";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,7 +24,8 @@ const router = createRouter({
           name: 'users-page',
           component: UsersListingPage
         },
-        ...containerRouter
+        ...containerRouter,
+        ...manageRouter,
       ]
     },
     {
