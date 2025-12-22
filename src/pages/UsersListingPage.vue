@@ -39,6 +39,7 @@
           <tr 
             class="body-row"
             v-for="(user, index) in usersData"
+            :key="index"
           >
             <td>{{ user.fullName }}</td>
             <td>{{ user.email }}</td>
@@ -100,7 +101,7 @@ const usersData = [
   padding: 1rem;
   
   .action-container {
-    background-color: #FFFFFF;
+    background-color: var(--white);
     padding: 1rem;
     border-radius: 0.75rem;
 
@@ -123,7 +124,7 @@ const usersData = [
   }
 
   .table-container {
-    background-color: #FFFFFF;
+    background-color: var(--white);
     padding: 1rem;
     margin-top: 1rem;
     border-radius: 0.75rem;
@@ -140,7 +141,7 @@ const usersData = [
       }
 
       .body-row:nth-child(odd) {
-        background-color: #EEEFF2;
+        background-color: var(--neutral-200);
       }
     }
   }
