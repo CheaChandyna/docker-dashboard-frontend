@@ -14,7 +14,7 @@
               type="email"
               autocomplete="email"
               placeholder="example@gmail.com"
-              v-model="data.username"
+              v-model="data.email"
             />
   
             <InputPassword
@@ -36,7 +36,7 @@ import { ref } from 'vue';
 
 
 const data = ref({
-  username: '',
+  email: '',
   password: '',
 })
 
@@ -69,33 +69,33 @@ const data = ref({
 }
 
 .login-heading-text h1 {
-  font-size: 1.875rem;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 700;
   color: var(--black);
   margin-bottom: 0.5rem;
 }
 
 .login-heading-text p {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: var(--text-2xl);
+  font-weight: 400;
 }
 
 .input-wrapper {
   padding: 2rem;
   border-radius: 20px;
-  background-color: var(--neutral-600);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.25rem;
 }
 
 .submit-button {
+  font-size: var(--text-2xl);
   align-self: center;
   padding: 1rem 2rem;
   background-color: var(--primary-700);
   color: var(--neutral-100);
-  font-weight: 600;
-  border-radius: 0.75rem;
+  font-weight: 400;
+  border-radius: 1rem;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;

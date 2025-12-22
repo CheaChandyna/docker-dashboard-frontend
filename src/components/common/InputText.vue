@@ -1,14 +1,17 @@
 <template>
   <div class="input-container">
-    <label for="id" class="input-label-style">{{ label }}</label>
-    <input 
-        :type="type"
-        :id="id"
-        class="input-style"
-        autocomplete="email"
-        :placeholder="placeholder"
-        v-model="data"
-    />
+    <div class="email-wrapper">
+        <label for="id" class="input-label-style">{{ label }}</label>
+        <input 
+            :type="type"
+            :id="id"
+            class="input-box-style"
+            autocomplete="email"
+            :placeholder="placeholder"
+            v-model="data"
+            required
+        />
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -34,10 +37,12 @@ const data = computed ({
     set: (value) => emit("update:modelValue", value)
 })
 </script>
-<style scoped>
+<style scoped> 
+.email-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-    .input-container input, input::placeholder {
-        font-size: var(--text-base);
-    }
     
 </style>
