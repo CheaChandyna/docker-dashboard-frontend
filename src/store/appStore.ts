@@ -13,6 +13,11 @@ export const useAppStore = defineStore('app', {
         route: '/containers',
         icon: 'containers'
       },
+      manage: {
+        name: 'Manage',
+        route: '/manage',
+        icon: 'manage'
+      },
       users: {
         name: 'Users',
         route: '/users',
