@@ -1,28 +1,26 @@
 <template>
   <div class="page">
     <div class="container">
-
       <form class="form-wrapper">
         <div class="login-heading-text">
-            <h1>Log in to your account</h1>
-            <p>Welcome back! Please enter your credentials</p>
+          <h1>Log in to your account</h1>
+          <p>Welcome back! Please enter your credentials</p>
         </div>
         <div class="input-wrapper">
-            <InputText
-              label="Email"
-              id="email"
-              type="email"
-              autocomplete="email"
-              placeholder="example@gmail.com"
-              v-model="data.email"
-            />
-  
-            <InputPassword
-              label="Password"
-              id="password"
-              placeholder="password"
-              v-model="data.password"
-            />
+          <InputText
+            label="Email"
+            id="email"
+            type="email"
+            autocomplete="email"
+            placeholder="example@gmail.com"
+            v-model="data.email"
+          />
+          <InputPassword
+            label="Password"
+            id="password"
+            placeholder="password"
+            v-model="data.password"
+          />
           <button type="submit" class="submit-button">Login</button>
         </div>
       </form>
@@ -30,19 +28,16 @@
   </div>
 </template>
 <script setup lang="ts">
-import InputPassword from '../components/common/InputPassword.vue';
-import InputText from '../components/common/InputText.vue';
-import { ref } from 'vue';
-
+import InputPassword from "../components/common/InputPassword.vue";
+import InputText from "../components/common/InputText.vue";
+import { ref } from "vue";
 
 const data = ref({
-  email: '',
-  password: '',
-})
-
+  email: "",
+  password: "",
+});
 </script>
 <style scoped>
-
 .page {
   min-height: 100vh;
   background-color: var(--neutral-400);
@@ -104,5 +99,4 @@ const data = ref({
 .submit-button:hover {
   background-color: var(--primary-600);
 }
-
 </style>

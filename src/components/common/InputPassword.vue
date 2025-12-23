@@ -3,7 +3,7 @@
     <div class="password-wrapper">
       <label for="id" class="input-label-style">{{ label }}</label>
       <div class="passsword-container">
-        <input 
+        <input
           :type="isPassword ? 'text' : 'password'"
           :id="id"
           :placeholder="placeholder"
@@ -11,55 +11,50 @@
           :class="state ? ' ' : 'error-input'"
           v-model="data"
           required
-          />
-          <button
-            type="button"
-            class="toggle-button" 
-            @click="togglePassword">
-            <img :src="passwordIcon()" alt="Toggle password">
-          </button>
+        />
+        <button type="button" class="toggle-button" @click="togglePassword">
+          <img :src="passwordIcon()" alt="Toggle password" />
+        </button>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { ref ,computed } from 'vue';
-const props = defineProps ({
-    label: String,
-    id: String,
-    placeholder: String,
-    state: {
-        type: Boolean,
-        default: 'true'
-    },
-    modelValue: String,
-})
+import { ref, computed } from "vue";
+const props = defineProps({
+  label: String,
+  id: String,
+  placeholder: String,
+  state: {
+    type: Boolean,
+    default: "true",
+  },
+  modelValue: String,
+});
 
-const emit = defineEmits (['update:modelValue'])
-const data = computed ({
-    get: () => props.modelValue,
-    set: (value) => emit("update:modelValue", value)
-})
+const emit = defineEmits(["update:modelValue"]);
+const data = computed({
+  get: () => props.modelValue,
+  set: (value) => emit("update:modelValue", value),
+});
 
-const isPassword = ref(false)
+const isPassword = ref(false);
 
 function togglePassword() {
-  isPassword.value = !isPassword.value
+  isPassword.value = !isPassword.value;
 }
 
-function passwordIcon (){
+function passwordIcon() {
   return isPassword.value
-  ? '/public/icons/Oneyes.svg'
-  : '/public/icons/Offeyes.svg'
+    ? "/public/icons/Oneyes.svg"
+    : "/public/icons/Offeyes.svg";
 }
-
 </script>
 <style scoped>
-
 .password-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .toggle-button {
