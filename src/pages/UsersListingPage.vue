@@ -9,6 +9,7 @@
         <CustomButton 
           icon="add"
           label="Add User"
+          @click="router.push('')"
         />
 
       </div>
@@ -55,9 +56,12 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import CustomButton from '../components/button/CustomButtonStroke.vue';
 import CustomButtonIcon from '../components/button/CustomButtonIcon.vue';
 import TableComponent from '../components/TableComponent.vue';
+
+const router = useRouter()
 
 const usersData = [
   {
@@ -124,7 +128,7 @@ const usersData = [
     background-color: var(--white);
     padding: 1rem;
     margin-top: 1rem;
-    border-radius: 0.75rem;    
+    border-radius: 0.75rem;      
   }
 }
 </style>
