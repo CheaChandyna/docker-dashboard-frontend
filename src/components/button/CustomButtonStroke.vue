@@ -1,5 +1,5 @@
 <template>
-  <div class="button-container">
+  <div class="button-container" :style="{ '--bg-color': `var(${props.colorHex})` }">
     <div class="content">
       <img class="icon" :src="`/icons/button/${props.icon}.svg`"/>
       <p class="label">{{ props.label }}</p>
@@ -12,9 +12,11 @@ const props = withDefaults(
   defineProps<{
     icon: string,
     label?: string,
+    colorHex?: string
   }>(),
   {
-    label: 'Label'
+    label: 'Label',
+    colorHex: "--primary-600"
   }
 )
 </script>
@@ -22,8 +24,8 @@ const props = withDefaults(
 <style scoped lang="scss">
 .button-container {
   width: fit-content;
-  border: 3px solid var(--primary-600);
-  color: var(--primary-600);
+  border: 3px solid var(--bg-color);
+  color: var(--bg-color);
   padding: 0.5rem 1rem;
   border-radius: 1.25rem;
   cursor: pointer;
@@ -43,11 +45,12 @@ const props = withDefaults(
     .label {
       font-size: 1.5rem;
       transition: all 0.3s ease;
+      white-space: nowrap;
     }
   }
 
   &:hover {
-    background-color: var(--primary-600);
+    background-color: var(--bg-color);
     color: white;
     transform: translateY(-2px);
 
