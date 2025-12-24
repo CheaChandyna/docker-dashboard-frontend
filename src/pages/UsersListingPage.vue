@@ -15,8 +15,7 @@
     </div>
 
     <div class="table-container">
-      <table class="table">
-
+      <TableComponent>
         <colgroup>
           <col style="width:20%">
           <col style="width:25%">
@@ -26,7 +25,7 @@
         </colgroup>
 
         <thead>
-          <tr class="header-row">
+          <tr>
             <th>Full Name</th>
             <th>Email</th>
             <th>Username</th>
@@ -36,8 +35,7 @@
         </thead>
 
         <tbody>
-          <tr 
-            class="body-row"
+          <tr
             v-for="(user, index) in usersData"
             :key="index"
           >
@@ -51,16 +49,15 @@
             </td>
           </tr>
         </tbody>
-
-      </table>
+      </TableComponent>
     </div>
-
   </div>
 </template>
 
 <script setup lang="ts">
 import CustomButton from '../components/button/CustomButtonStroke.vue';
 import CustomButtonIcon from '../components/button/CustomButtonIcon.vue';
+import TableComponent from '../components/TableComponent.vue';
 
 const usersData = [
   {
@@ -127,23 +124,7 @@ const usersData = [
     background-color: var(--white);
     padding: 1rem;
     margin-top: 1rem;
-    border-radius: 0.75rem;
-
-    .table {
-      width: 100%;
-      font-size: 1.25rem;
-      border-collapse: collapse;
-
-      th,
-      td {
-        padding: 0.75rem 1rem;
-        text-align: start;
-      }
-
-      .body-row:nth-child(odd) {
-        background-color: var(--neutral-200);
-      }
-    }
+    border-radius: 0.75rem;    
   }
 }
 </style>
