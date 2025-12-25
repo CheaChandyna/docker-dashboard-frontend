@@ -28,15 +28,6 @@
   --green: #65EA52;
   --red: #DA2B3C;
   --orange: #ff9900
-
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-big-title: 2.5rem;
 }
 
 * {
@@ -49,7 +40,7 @@
 // This is for the input-text and input-password
 // This is for the input-label such as Email and Password
 .input-label-style {
-  font-size: var(--text-2xl);
+  font-size: 24px;
   font-weight: 700;
 }
 
@@ -60,7 +51,7 @@
 }
 
 .input-container input, input::placeholder {
-    font-size: var(--text-base);
+    font-size: 16px;
 }
 
 .input-box-style {

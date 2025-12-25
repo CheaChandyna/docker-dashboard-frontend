@@ -1,12 +1,11 @@
 <template>
   <div class="input-container">
-    <div class="email-wrapper">
+    <div class="text-wrapper">
       <label for="id" class="input-label-style">{{ label }}</label>
       <input
         :type="type"
         :id="id"
         class="input-box-style"
-        autocomplete="email"
         :placeholder="placeholder"
         v-model="data"
         required
@@ -38,7 +37,7 @@ const data = computed({
 });
 </script>
 <style scoped>
-.email-wrapper {
+.text-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;

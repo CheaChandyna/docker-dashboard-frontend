@@ -71,7 +71,7 @@ const data = ref({
 }
 
 .login-heading-text p {
-  font-size: var(--text-2xl);
+  font-size: 24px;
   font-weight: 400;
 }
 
@@ -84,7 +84,7 @@ const data = ref({
 }
 
 .submit-button {
-  font-size: var(--text-2xl);
+  font-size: 24px;
   align-self: center;
   padding: 1rem 2rem;
   background-color: var(--primary-700);
