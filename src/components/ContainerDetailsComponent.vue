@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .info-grid {
   display: grid;
   grid-template-columns: 150px 1fr; /* label | value */

@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="action-container">
+    <div class="section-container">
       <div class="header">
         <img src="/icons/settings.svg" alt="settings" />
         <p class="title">Actions</p>
@@ -13,25 +13,23 @@
       </div>
     </div>
 
-    <div class="action-container">
+    <div class="section-container">
       <div class="header">
         <img src="/icons/container.svg" alt="container" />
         <p class="title">Container status</p>
       </div>
 
-      <div class="container-details-wrapper">
-        <ContainerDetailsComponent
-          v-if="selectedContainer"
-          :id="selectedContainer.Id"
-          :name="selectedContainer.Names[0]?.replace('/', '')"
-          :status="selectedContainer.Status"
-          :created="selectedContainer.Created"
-          :startTime="selectedContainer.StartedAt"
-        />
-      </div>
+      <ContainerDetailsComponent
+        v-if="selectedContainer"
+        :id="selectedContainer.Id"
+        :name="selectedContainer.Names[0]?.replace('/', '')"
+        :status="selectedContainer.Status"
+        :created="selectedContainer.Created"
+        :startTime="selectedContainer.StartedAt"
+      />
     </div>
 
-    <div class="action-container">
+    <div class="section-container">
       <div class="header">
         <img src="/icons/accessby.svg" alt="access" />
         <p class="title">Access By</p>
@@ -43,35 +41,17 @@
 
 <style scoped lang="scss">
 .page {
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
-  .action-container {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background-color: #ffffff;
-    border-radius: 0.75rem;
-
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      .title {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-    }
-
-    .action-buttons {
-      display: flex;
-      gap: 0.75rem;
-      padding-top: 1rem;
-    }
-
-    .container-details-wrapper {
-      padding-top: 1rem;
-    }
+  .action-buttons {
+    display: flex;
+    gap: 0.75rem;
   }
+
+  
+
 }
 </style>
 

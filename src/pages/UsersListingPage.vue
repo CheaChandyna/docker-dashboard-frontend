@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="action-container">
+    <div class="section-container">
       <div class="header">
         <img src="/icons/settings.svg" alt="settings">
         <p class="title">Actions</p>
@@ -105,17 +105,6 @@ const usersData = [
     background-color: var(--white);
     padding: 1rem;
     border-radius: 0.75rem;
-
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-  
-      .title {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-    }
 
     .action-buttons {
       padding-top: 1rem;

@@ -1,5 +1,9 @@
 <template>
-  <div class="button-container" :style="{ '--bg-color': `var(${props.colorHex})` }">
+  <div class="button-container" :style="{  
+    'border': `3px solid ${hexColor}`,
+    'color': `${hexColor}`,
+    '--hover-bg-color': hexColor,
+  }">
     <div class="content">
       <img class="icon" :src="`/icons/button/${props.icon}.svg`"/>
       <p class="label">{{ props.label }}</p>
@@ -12,11 +16,11 @@ const props = withDefaults(
   defineProps<{
     icon: string,
     label?: string,
-    colorHex?: string
+    hexColor?: string
   }>(),
   {
     label: 'Label',
-    colorHex: "--primary-600"
+    hexColor: "var(--primary-600)"
   }
 )
 </script>
@@ -24,8 +28,6 @@ const props = withDefaults(
 <style scoped lang="scss">
 .button-container {
   width: fit-content;
-  border: 2px solid var(--primary-600);
-  color: var(--primary-600);
   padding: 0.5rem 1rem;
   border-radius: 1.25rem;
   cursor: pointer;
@@ -44,16 +46,21 @@ const props = withDefaults(
 
     .label {
       transition: all 0.3s ease;
+      font-weight: 600;
       white-space: nowrap;
     }
   }
 
   &:hover {
-    background-color: var(--bg-color);
-    color: white;
+    background-color: var(--hover-bg-color);
+    color: white !important;
     transform: translateY(-2px);
 
     .content {
+      .label {
+        color: var(--hover-text-color);
+      }
+
       .icon {
         filter: brightness(0) invert(1);
       }

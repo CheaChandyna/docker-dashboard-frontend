@@ -20,7 +20,7 @@
           <CustomButton
             label="Delete"
             icon="delete"
-            color-hex="--red"
+            hexColor="var(--red)"
             @click.stop="router.push(`/manage/${props.containerId}/delete`)"
           />
         </div>
@@ -44,8 +44,15 @@ const props = defineProps<{
 .container {
   display: flex;
   border-radius: 1.5rem;
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-200);
   padding: 1.25rem;
+
+  translate: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
 
   .wrapper {
     display: flex;
@@ -61,13 +68,12 @@ const props = defineProps<{
     .info-and-buttons {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       flex: 1;
       height: 100%;
 
       h2 {
         font-size: 1.25rem;
-        align-self: flex-start;
-        margin-top: auto;
       }
   
       .button-wrapper {

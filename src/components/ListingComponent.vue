@@ -5,19 +5,35 @@
       <h2>{{ props.name }}</h2>
     </div>
 
-    <div 
-      class="state-tag" 
-      :class="props.state === 'running' ? 'active' : props.state === 'stopped' ? 'inactive' : 'processing'">
-      <span class="state" >{{ props.state.charAt(0).toUpperCase() + props.state.slice(1) }}</span>
+    <div>
+      <PillLabelStroke 
+        :label="props.state.charAt(0).toUpperCase() + props.state.slice(1)"
+        :hexColor="stateColor"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+import PillLabelStroke from './common/PillLabelStroke.vue';
+
 const props = defineProps<{
   name: string | undefined,
   state: string,
 }>()
+
+const stateColor = computed(() => {
+  switch (props.state) {
+    case 'running':
+      return 'var(--green)';
+    case 'paused':
+      return 'var(--orange)';
+    case 'exited':
+    default:
+      return 'var(--red)';
+  }
+})
 
 </script>
 
@@ -25,6 +41,7 @@ const props = defineProps<{
 .container {
   display: flex;
   justify-content: space-between;
+  transition: all 0.3s ease;
 
   border-radius: 1.5rem;
   background-color: var(--neutral-100);
@@ -57,8 +74,9 @@ const props = defineProps<{
     }
   }
 
-  .active { background-color: var(--green); }
-  .inactive { background-color: var(--red); }
-  .processing { background-color: var(--orange);}
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
 }
 </style>
