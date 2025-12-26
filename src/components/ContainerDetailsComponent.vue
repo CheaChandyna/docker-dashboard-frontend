@@ -37,8 +37,8 @@
 <script setup lang="ts">
   import { computed } from 'vue';
 	const container = defineProps<{
-		id: string,
-		name: string[] | undefined,
+		id: string | number,
+		name: string | undefined,
 		status: string,
 		created: number,
 		startTime?: string

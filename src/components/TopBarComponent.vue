@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Docker Dashboard</h2>
+    <h3>Docker Dashboard</h3>
   </div>
 </template>
 

@@ -24,8 +24,8 @@ const props = withDefaults(
 <style scoped lang="scss">
 .button-container {
   width: fit-content;
-  border: 3px solid var(--bg-color);
-  color: var(--bg-color);
+  border: 2px solid var(--primary-600);
+  color: var(--primary-600);
   padding: 0.5rem 1rem;
   border-radius: 1.25rem;
   cursor: pointer;
@@ -43,7 +43,6 @@ const props = withDefaults(
     }
 
     .label {
-      font-size: 1.5rem;
       transition: all 0.3s ease;
       white-space: nowrap;
     }

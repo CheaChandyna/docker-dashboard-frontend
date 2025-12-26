@@ -29,7 +29,7 @@ const { tabs } = storeToRefs(appStore)
 .container {
   height: 100%;
   width: 100%;
-  background-color: var(--primary-400);
+  background-color: var(--primary-600);
   color: #FFFFFF;
 
   .title {
