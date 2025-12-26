@@ -1,20 +1,42 @@
 <template>
-  <div class="page">
-    <div class="grid-container">
-      <ListingComponent 
-        v-for="container in containers" 
-        :key="container.Id"
-        :name="container.Names[0]?.replace('/', '')" 
-        :state="container.State"
-        @click="router.push(`/manage/${container.Id}`)"
-      />
+  <div class="page"> 
+    <div class="action-container">
+      <div class="header">
+        <img src="/icons/settings.svg" alt="settings">
+        <p class="title">Actions</p>
+      </div>
+      <div class="action-buttons">
+        <CustomButton 
+          icon="add"
+          label="Create a container"
+        />
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="header">
+        <img src="/icons/settings.svg" alt="settings">
+        <p class="title">Manage Containers</p>
+      </div>
+
+      <div class="grid-container">
+        <ManageListingComponent 
+          v-for="container in containers" 
+          :key="container.Id"
+          :name="container.Names[0]?.replace('/', '')" 
+          :container-id="container.Id"
+          @click="router.push(`/manage/${container.Id}`)"
+        >
+        </ManageListingComponent>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import ListingComponent from '../../components/ListingComponent.vue';
+import ManageListingComponent from '../../components/ManageListingComponent.vue';
+import CustomButton from '../../components/button/CustomButtonStroke.vue';
 
 const router = useRouter()
 
@@ -217,11 +239,57 @@ const containers = [
 ];
 </script>
 
-<style scoped>
-.grid-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+<style scoped lang="scss">
+.page {
+  padding: 1rem;
+  
+  .action-container {
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 0.75rem;
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+  
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+
+    .action-buttons {
+      padding-top: 1rem;
+      display: flex;
+      gap: 0.75rem
+    }
+  }
+
+  .content-container {
+    background-color: #FFFFFF;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+  
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+
+    .grid-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
 }
 </style>

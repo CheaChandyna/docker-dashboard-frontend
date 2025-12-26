@@ -216,7 +216,7 @@ const containers = [
 ];
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .grid-container {
   width: 100%;
   display: grid;

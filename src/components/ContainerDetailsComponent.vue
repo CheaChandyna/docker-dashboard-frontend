@@ -17,21 +17,21 @@
   </div>
 </template>
 
-<style>
-  .info-grid {
-        display: grid;
-        grid-template-columns: 150px 1fr; /* label | value */
-        gap: 1rem 5rem; /* row gap | column gap */
-        align-items: center;
-      }
-      .label {
-        font-weight: 600;
-        color: rgb(0, 0, 0);
-        font-size: 1.5rem;
-      }
-      .value {
-        font-size: 1.25rem;
-      }
+<style scoped>
+.info-grid {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* label | value */
+  gap: 1rem 5rem; /* row gap | column gap */
+  align-items: center;
+}
+.label {
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+}
+.value {
+  font-size: 1.25rem;
+}
 </style>
 
 <script setup lang="ts">
