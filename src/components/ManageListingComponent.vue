@@ -2,26 +2,29 @@
   <div class="container">
     <div class="wrapper">
       <img src="/icons/immich.svg" alt="">
-      <h2>{{ props.name }}</h2>
-    </div>
+      
+      <div class="info-and-buttons">
+        <h2>{{ props.name }}</h2>
 
-    <div class="button-wrapper">
-      <CustomButton
-        label="Add User"
-        icon="add"
-        @click.stop="router.push(`/manage/${props.containerId}/users`)"
-      />
-      <CustomButton
-        label="Update"
-        icon="up"
-        @click.stop="router.push(`/manage/${props.containerId}/update`)"
-      />
-      <CustomButton
-        label="Delete"
-        icon="delete"
-        color-hex="--red"
-        @click.stop="router.push(`/manage/${props.containerId}/delete`)"
-      />
+        <div class="button-wrapper">
+          <CustomButton
+            label="Add User"
+            icon="add"
+            @click.stop="router.push(`/manage/${props.containerId}/users`)"
+          />
+          <CustomButton
+            label="Update"
+            icon="up"
+            @click.stop="router.push(`/manage/${props.containerId}/update`)"
+          />
+          <CustomButton
+            label="Delete"
+            icon="delete"
+            color-hex="--red"
+            @click.stop="router.push(`/manage/${props.containerId}/delete`)"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -40,7 +43,6 @@ const props = defineProps<{
 <style scoped lang="scss">
 .container {
   display: flex;
-  justify-content: space-between;
   border-radius: 1.5rem;
   background-color: var(--neutral-100);
   padding: 1.25rem;
@@ -49,23 +51,32 @@ const props = defineProps<{
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    width: 100%;
 
     img {
       width: 6.25rem;
       height: 6.25rem;
     }
 
-    h2 {
-      font-size: 1.25rem;
+    .info-and-buttons {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      height: 100%;
+
+      h2 {
+        font-size: 1.25rem;
+        align-self: flex-start;
+        margin-top: auto;
+      }
+  
+      .button-wrapper {
+        display: flex;
+        gap: 0.25rem;
+        align-self: flex-end;
+      }
     }
   }
 
-  .button-wrapper {
-    display: flex;
-    height: fit-content;
-    padding: 0.25rem 0.75rem;
-    gap: 0.25rem;
-    margin-top: auto;
-  }
 }
 </style>
